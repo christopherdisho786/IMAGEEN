@@ -1,0 +1,102 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #22d3ee;
+  --danger: #fb7185;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
+  color: var(--text);
+}
+.app {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px 32px;
+}
+h1 { margin-bottom: 8px; }
+.subtitle { margin-top: 0; color: var(--muted); }
+.panel {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+label span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+textarea, input, select, button {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0b1220;
+  color: var(--text);
+  padding: 10px;
+}
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+button {
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(90deg, #0891b2, #2563eb);
+}
+button.secondary { background: #374151; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+.log {
+  margin-top: 12px;
+  min-height: 120px;
+  max-height: 280px;
+  overflow: auto;
+  background: #030712;
+  border-radius: 8px;
+  padding: 10px;
+  white-space: pre-wrap;
+  border: 1px solid #1f2937;
+}
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.preview-grid figure {
+  margin: 0;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #020617;
+}
+.preview-grid img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+.preview-grid figcaption {
+  font-size: 0.75rem;
+  padding: 8px;
+  color: #cbd5e1;
+  word-break: break-all;
+}
