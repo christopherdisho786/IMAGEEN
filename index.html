@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Key Gemini Stock Image Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>🚀 Multi-Key Stock Image Generator</h1>
+    <p class="subtitle">Bulk-generate 16:9 stock-ready images with Gemini key rotation + parallel jobs.</p>
+
+    <section class="panel">
+      <div class="grid">
+        <label>
+          <span>Topics (CSV)</span>
+          <textarea id="topics" rows="3" placeholder="business growth, digital marketing, finance analytics"></textarea>
+        </label>
+
+        <label>
+          <span>Images Per Topic (1-100)</span>
+          <input id="imagesPerTopic" type="number" min="1" max="100" value="3" />
+        </label>
+
+        <label>
+          <span>Instructions / Styles (CSV)</span>
+          <textarea id="instructions" rows="3" placeholder="blue corporate minimal, dark tech glowing, soft gradient background"></textarea>
+        </label>
+
+        <label>
+          <span>Model Selector</span>
+          <select id="model">
+            <option value="fast" selected>Gemini Nano / Flash (fast, low cost)</option>
+            <option value="pro">Gemini Pro (higher quality)</option>
+          </select>
+        </label>
+
+        <label>
+          <span>API Keys (one per line, max 50)</span>
+          <textarea id="apiKeys" rows="6" placeholder="AIza...\nAIza..."></textarea>
+        </label>
+
+        <label>
+          <span>Resolution (Locked)</span>
+          <input type="text" value="16:9 (target: 1920x1080 / 3840x2160)" disabled />
+        </label>
+
+        <label>
+          <span>Complexity</span>
+          <select id="complexity">
+            <option value="simple">Simple</option>
+            <option value="medium" selected>Medium</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Preview</span>
+          <select id="previewToggle">
+            <option value="on" selected>ON</option>
+            <option value="off">OFF</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="startBtn">Start Generation</button>
+        <button id="stopBtn" class="secondary" disabled>Stop</button>
+      </div>
+    </section>
+
+    <section class="panel status">
+      <h2>Live Status</h2>
+      <div class="status-grid">
+        <div><strong>Running:</strong> <span id="runningTasks">0</span> tasks</div>
+        <div><strong>Completed:</strong> <span id="completedCount">0</span>/<span id="totalCount">0</span></div>
+        <div><strong>Failed:</strong> <span id="failedCount">0</span> <span id="retryingLabel"></span></div>
+        <div><strong>Active Keys:</strong> <span id="activeKeys">0</span>/<span id="totalKeys">0</span></div>
+      </div>
+      <pre id="log" class="log" aria-live="polite"></pre>
+    </section>
+
+    <section id="previewSection" class="panel">
+      <h2>Preview</h2>
+      <div id="previewGrid" class="preview-grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
